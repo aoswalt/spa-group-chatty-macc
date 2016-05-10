@@ -2,52 +2,50 @@
 'use strict';
 
 (function() {
-  var userInput = document.getElementById("user-input");
-  userInput.addEventListener("keypress", function(event){
+  var $userInput = $("#user-input");
+  var $clearButton = $("#clear-button");
+
+  $userInput.keypress(function(event){
     if (event.which === 13) {
-      var user = document.querySelector("input[name='user']:checked").value;
+      var $user = $("input[name='user']:checked");
 
       var message = {
-        message: userInput.value,
-        user: user,
+        message: $userInput.val(),
+        user: $user.val(),
         timestamp: Date.now()
       };
       Chatty.addMessage("message-box", message);
-      userInput.value = "";
-      clearButton.disabled = false;
+      $userInput.val("");
+      $clearButton.prop("disabled", false);
     }
   });
 
-  var clearButton = document.getElementById("clear-button");
-  clearButton.addEventListener("click", function(){
-    Array.from(document.getElementsByClassName("message")).forEach(function(element) {
+  $clearButton.click(function(){
+    $(".message").each(function(index, element) {
       Chatty.removeElement(element.id);
     });
-    clearButton.disabled = true;
+    $clearButton.prop("disabled", true);
   });
 
-  var bodyElement = document.querySelector("body");
-  var largeText = document.getElementById("large-text");
-  largeText.addEventListener("change", function(){
-    bodyElement.classList.toggle("large-text", event.target.checked);
+  var $body = $("body");
+  var $largeText = $("#large-text");
+  $largeText.change(function(event){
+    $body.toggleClass("large-text", event.target.checked);
   });
 
   function insertMessagesArray(messagesArray) {
-    messagesArray.forEach(function(messageObj) {
+    $.each(messagesArray, function(index, messageObj) {
       Chatty.addMessage("message-box", messageObj);
     });
   }
 
 // event listeners for color picker
-  var saveButton = document.getElementById("saveBtn");
-  saveButton.addEventListener("click", function(){
-    var newTheme = document.getElementById("colorTheme");
-    var newFont = document.getElementById("colorFont");
-
-    var header = document.getElementById("header");
-    var body = document.getElementById("body");
-    body.style.background = newTheme.value;
-    body.style.color = newFont.value;
+  var $newThemeColor = $("#colorTheme");
+  var $newFontColor = $("#colorFont");
+  var $saveButton = $("#saveBtn");
+  $saveButton.click(function(){
+    $body.css("background", $newThemeColor.val());
+    $body.css("color", $newFontColor.val());
   });
 
   Chatty.loadJSON(insertMessagesArray);

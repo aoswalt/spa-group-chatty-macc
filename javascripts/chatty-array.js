@@ -3,12 +3,8 @@
 var Chatty = (function(chat) {
   var newId = 0;
   var messages = [];
-  var userInput = document.getElementById("user-input");
+  var $userInput = $("#user-input");
 
-
-  function deleteMessageListener(event) {
-    chat.removeElement(event.target.parentElement.id);
-  }
 
   function formatTimestamp(ts) {
     var date = new Date(ts);
@@ -16,10 +12,14 @@ var Chatty = (function(chat) {
     return iso.replace(/(.+)T(.+)\..+/, '$2 $1');
   }
 
+  function deleteMessageListener(event) {
+    chat.removeElement(event.target.parentElement.id);
+  }
+
   function editMessageListener(event) {
-    var spanElement = event.target.parentElement.getElementsByClassName("message-text")[0];
-    userInput.value = spanElement.innerHTML;
-    userInput.focus();
+    var $spanElement = $(event.target).siblings(".message-text");
+    $userInput.val($spanElement.html());
+    $userInput.focus();
     chat.removeElement(event.target.parentElement.id);
   }
 
@@ -28,22 +28,17 @@ var Chatty = (function(chat) {
     message.id = "message" + newId++;
     messages.push(message);
 
-    var messageElement = document.createElement("div");
-    messageElement.id = message.id;
-    messageElement.className = "message";
-    messageElement.innerHTML = `
-      <span class="message-user">${message.user}</span>
-      <span class="message-text">${message.message}</span>
-      <span class="message-time">${formatTimestamp(message.timestamp)}</span>
-      <input type="button" class="btn btn-primary btn-xs delete-button" value="Delete">
-      <input type="button" class="btn btn-primary btn-xs edit-button" value="Edit">`;
-    document.getElementById(parentId).appendChild(messageElement);
+    $("#" + parentId).append(`
+      <div id=${message.id} class="message">
+        <span class="message-user">${message.user}</span>
+        <span class="message-text">${message.message}</span>
+        <span class="message-time">${formatTimestamp(message.timestamp)}</span>
+        <input type="button" class="btn btn-primary btn-xs delete-button" value="Delete">
+        <input type="button" class="btn btn-primary btn-xs edit-button" value="Edit">
+      </div>`);
 
-    var deleteButton = messageElement.getElementsByClassName("delete-button")[0];
-    deleteButton.addEventListener("click", deleteMessageListener);
-
-    var editButton = messageElement.getElementsByClassName("edit-button")[0];
-    editButton.addEventListener("click", editMessageListener);
+    $(".delete-button").click(deleteMessageListener);
+    $(".edit-button").click(editMessageListener);
   };
 
   chat.deleteMessage = function(messageString) {
