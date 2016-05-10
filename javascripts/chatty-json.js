@@ -1,11 +1,9 @@
 'use strict';
 
-var Chatty = (function(json) {
-  json.loadJSON = function(callback) {
-    $.ajax("messages.json").done(function(data) {
-      callback(data.messages);
-    });
+var Chatty = (function(chatty) {
+  chatty.loadJSON = function(callback) {
+    $.ajax("messages.json").done((data) => callback(data.messages));
   };
 
-  return json;
+  return chatty;
 }(Chatty || {}));

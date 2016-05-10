@@ -22,7 +22,7 @@
 
   $clearButton.click(function(){
     $(".message").each(function(index, element) {
-      Chatty.removeElement(element.id);
+      Chatty.removeElement(element);
     });
     $clearButton.prop("disabled", true);
   });

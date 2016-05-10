@@ -1,9 +1,9 @@
 'use strict';
 
-var Chatty = (function(chat) {
+var Chatty = (function(chatty) {
   var newId = 0;
   var messages = [];
-  var $userInput = $("#user-input");
+  var $messageInput = $("#user-input");
 
 
   function formatTimestamp(ts) {
@@ -13,18 +13,18 @@ var Chatty = (function(chat) {
   }
 
   function deleteMessageListener(event) {
-    chat.removeElement(event.target.parentElement.id);
+    chatty.removeElement(event.target.parentElement);
   }
 
   function editMessageListener(event) {
     var $spanElement = $(event.target).siblings(".message-text");
-    $userInput.val($spanElement.html());
-    $userInput.focus();
-    chat.removeElement(event.target.parentElement.id);
+    $messageInput.val($spanElement.html());
+    $messageInput.focus();
+    chatty.removeElement(event.target.parentElement);
   }
 
 
-  chat.addMessage = function(parentId, message) {
+  chatty.addMessage = function(parentId, message) {
     message.id = "message" + newId++;
     messages.push(message);
 
@@ -41,12 +41,10 @@ var Chatty = (function(chat) {
     $(".edit-button").click(editMessageListener);
   };
 
-  chat.deleteMessage = function(messageString) {
-    var messageIndex = messages.findIndex(function(elem) {
-      return elem.message === messageString;
-    });
+  chatty.deleteMessage = function(messageId) {
+    var messageIndex = messages.findIndex((elem) => { return elem.id === messageId; });
     messages.splice(messageIndex, 1);
   };
 
-  return chat;
+  return chatty;
 }(Chatty || {}));
