@@ -1,8 +1,8 @@
 'use strict';
 
 var Chatty = (function(chatty) {
-  var newId = 0;
-  var messages = [];
+  var nextId = 0;
+  var messages = {};
   var $messageInput = $("#user-input");
 
 
@@ -25,11 +25,10 @@ var Chatty = (function(chatty) {
 
 
   chatty.addMessage = function(parentId, message) {
-    message.id = "message" + newId++;
-    messages.push(message);
+    messages[nextId] = message;
 
     $("#" + parentId).append(`
-      <div id=${message.id} class="message">
+      <div id=${nextId} class="message">
         <span class="message-user">${message.user}</span>
         <span class="message-text">${message.message}</span>
         <span class="message-time">${formatTimestamp(message.timestamp)}</span>
@@ -39,11 +38,12 @@ var Chatty = (function(chatty) {
 
     $(".delete-button").click(deleteMessageListener);
     $(".edit-button").click(editMessageListener);
+
+    nextId++;
   };
 
   chatty.deleteMessage = function(messageId) {
-    var messageIndex = messages.findIndex((elem) => { return elem.id === messageId; });
-    messages.splice(messageIndex, 1);
+    delete messages[messageId];
   };
 
   return chatty;
