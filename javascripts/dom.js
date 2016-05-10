@@ -2,20 +2,20 @@
 'use strict';
 
 (function() {
-  var $userInput = $("#user-input");
+  var $messageInput = $("#user-input");
   var $clearButton = $("#clear-button");
 
-  $userInput.keypress(function(event){
+  $messageInput.keypress(function(event){
     if (event.which === 13) {
-      var $user = $("input[name='user']:checked");
+      var $userSelect = $("input[name='user']:checked");
 
       var message = {
-        message: $userInput.val(),
-        user: $user.val(),
+        message: $messageInput.val(),
+        user: $userSelect.val(),
         timestamp: Date.now()
       };
       Chatty.addMessage("message-box", message);
-      $userInput.val("");
+      $messageInput.val("");
       $clearButton.prop("disabled", false);
     }
   });
