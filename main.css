@@ -1,0 +1,172 @@
+/*-__________ Dark theme button styles override __________-*/
+
+.dark-theme {
+  background-color: black;
+  color: white;
+}
+
+.large-text {
+  font-size: 2rem;
+}
+
+
+
+/*-__________ Font __________-*/
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+
+
+/*-__________ General style __________-*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#wrapper {
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+
+/*-__________ Nav bar __________-*/
+nav {
+  border-bottom: 2px solid #237b99;
+  padding: 10px;
+  background: #3BCEFF;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+}
+
+.dark-theme nav {
+  background-color: #0b2933;
+  color: white;
+} /* toogle color for dark theme button */
+
+h1 {
+  display: inline-block;
+  margin-right: 80px;
+  font-size: 2em;
+  color: green;
+}
+
+.dark-theme h1 {
+  color: white;
+} /* toogle color for dark theme button */
+
+
+/*-__________ User message input __________-*/
+
+#user-input {
+  margin: 2px;
+  border: 1px solid #237b99;
+  display: inline;
+  padding: 1px 20px;
+  border: 0;
+  height: 25px;
+  width: 550px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset;
+  -moz-box-shadow: 1px 1px 0 0 #FFF, 5px 5px 40px 2px #BBB inset;
+  -webkit-box-shadow: 1px 1px 5px 7px #FFF, 5px 5px 40px 2px #BBB inset;
+  -webkit-background-clip: padding-box;
+  outline: 0;
+  font-size: 18px;
+}
+
+
+/*-__________ Buttons __________-*/
+
+#dark-theme:hover,
+#large-text:hover {
+  cursor: pointer;
+}
+
+.button-success {
+  border-radius: 10px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+  background: rgb(28, 184, 65); /* this is a green */
+}
+
+.checkboxes {
+  display: inline;
+}
+
+.top-level-nav-elements {
+  padding: 10px 5px
+}
+
+
+/*-__________ Output messages style __________-*/
+
+#message-text {
+  padding-top: 225px;
+  margin: 0px 0 15px 15px;
+  font-size: 1.2em;
+}
+
+#message-box {
+  border-top: 3px solid #237b99;
+  padding: 20px;
+}
+
+/* adding below, this line was the end of file */
+.message {
+  padding: 8px;
+  margin: 8px;
+  border: 2px solid #3BCEFF;
+  border-radius: 10px;
+  width: 95%;
+}
+
+.message-user {
+  font-weight: bold;
+  padding-right: 0.25rem;
+}
+
+.message-user:after {
+  content: ":";
+}
+
+.edit-button,
+.delete-button,
+.message-time {
+  float: right;
+}
+
+.edit-button {
+  margin-right: 0.25rem;
+}
+
+.delete-button {
+  margin-right: 0.75rem;
+  background-color: firebrick !important;
+}
+
+/*css for the color picker*/
+.btn {
+  background: green;
+}
+
+.modal-header {
+  background: #3BCEFF;
+}
+
+.modal-body p {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}

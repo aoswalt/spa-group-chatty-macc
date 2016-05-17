@@ -1,0 +1,26 @@
+{
+  "name": "chatty-jquery",
+  "version": "1.0.0",
+  "description": "## Setup",
+  "main": "chatty-array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aoswalt/spa-group-chatty-macc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aoswalt/spa-group-chatty-macc/issues"
+  },
+  "homepage": "https://github.com/aoswalt/spa-group-chatty-macc#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-watch": "^4.3.5",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
+}

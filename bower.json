@@ -1,0 +1,20 @@
+{
+  "name": "chatty-jquery",
+  "description": "## Setup",
+  "main": "chatty-array.js",
+  "authors": [
+    "Adam Oswalt <adam.oswalt@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/aoswalt/spa-group-chatty-macc",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

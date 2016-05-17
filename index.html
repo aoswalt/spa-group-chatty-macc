@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chatty</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body id="body">
+  <div id="wrapper">
+    <nav id="header">
+      <div class="top-level-nav-elements">
+        <h1>Chatty!</h1>
+        <div id="usernames">
+          <input type="radio" name="user" id="user-xavier" value="Xavier" checked>
+          <label for="user-xavier">Xavier</label>
+          <input type="radio" name="user" id="user-joanna" value="Joanna">
+          <label for="user-joanna">Joanna</label>
+          <input type="radio" name="user" id="user-mackenzie" value="Mackenzie">
+          <label for="user-mackenzie">Mackenzie</label>
+          <input type="radio" name="user" id="user-gunter" value="Gunter">
+          <label for="user-gunter">Gunter</label>
+          <input type="radio" name="user" id="user-iveta" value="Iveta">
+          <label for="user-iveta">Iveta</label>
+          <input type="radio" name="user" id="user-sven" value="Sven">
+          <label for="user-sven">Sven</label>
+        </div>
+
+        <input id="user-input" type="text">
+        <input class="btn btn-primary btn-sm" id="clear-button" type="button" value="Clear Messages">
+      </div>
+
+      <div class="checkboxes">
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+        Change theme!
+        </button>
+        <input id="large-text" type="checkbox">
+        <label for="large-text">Large Text</label>
+      </div>
+    </nav>
+
+    <p id="message-text">Messages:</p>
+    <div id="message-box"></div>
+  </div>
+
+    <!-- Button trigger modal -->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Color Theme</h4>
+          </div>
+          <div class="modal-body">
+            <p class="themeFont">Pick a new theme color and font color!</p>
+            <p>Theme color</p>
+            <input type="color" id="colorTheme" name="themeColor" value="#579143">
+            <p>Font color</p>
+            <input type="color" id="colorFont" name="themeColor" value="#7D4391">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="saveBtn" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+    <!-- /.modal-dialog -->
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+
+  <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <script src="javascripts/chatty-array.js" type="text/javascript"></script>
+  <script src="javascripts/chatty-dom.js" type="text/javascript"></script>
+  <script src="javascripts/chatty-json.js" type="text/javascript"></script>
+  <script src="javascripts/dom.js" type="text/javascript"></script>
+</body>
+</html>
